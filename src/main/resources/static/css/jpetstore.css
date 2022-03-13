@@ -379,3 +379,7 @@ table a{
 table a:hover{
     color: #54c07a;
 }
+
+.accountstable{
+    display: inline-block;
+}

@@ -1,0 +1,61 @@
+<div th:replace="/common/header"></div>
+
+<div id="BackLink">
+    <a href="/common/main">Return to Main Menu</a>
+</div>
+
+
+
+<div id="accounts">
+
+    <h1 align="center">Accounts</h1>
+
+
+
+
+
+    <div class="accountstable" th:each="user:${userList}">
+
+        <table class="accounts" th:id="${user.username}+table">
+
+            <tr>
+                <td th:text="${user.username}">
+                    <a>username</a>
+                </td>
+            </tr>
+
+            <tr>
+                <td th:text="${user.firstname}">
+                    firstname
+                </td>
+            </tr>
+
+            <tr>
+                <td th:text="${user.lastname}">
+                    lastname
+                </td>
+            </tr>
+
+            <tr>
+                <td th:text="${user.phone}">
+                    phone
+                </td>
+            </tr>
+
+
+        </table>
+
+
+
+
+    </div>
+
+
+
+
+</div>
+
+
+
+
+<div th:replace="/common/footer"></div>
