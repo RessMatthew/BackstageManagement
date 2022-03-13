@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Management</title>
+    <link rel="stylesheet" href="/css/jpetstore.css" type="text/css">
+    <link href="/css/jquery-ui.min.css" rel="StyleSheet"  type="text/css"/>
+
+    <meta name="generator"
+          content="HTML Tidy for Linux/x86 (vers 1st November 2002), see www.w3.org" />
+    <title>MyPetStore Demo</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <meta http-equiv="Cache-Control" content="max-age=0" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="Expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+    <meta http-equiv="Pragma" content="no-cache" />
+
+</head>
+<body>
+<header th:fragment="header">
+    <div id="Header">
+
+        <div id="Logo">
+            <div id="LogoContent">
+                <a href="/common/main"><img src="/images/logo-topbar.gif"/></a>
+            </div>
+        </div>
+
+
+        <div id="Menu" >
+            <img align="middle" src="/images/separator.gif" />
+
+<!--            商品管理-->
+            <a href="#" >Commodity </a>
+
+            <img align="middle" src="/images/separator.gif" />
+
+<!--            用户管理-->
+            <a href="#">Account </a>
+
+            <img align="middle" src="/images/separator.gif" />
+
+<!--            订单管理-->
+            <a href="#">Order </a>
+
+            <img align="middle" src="/images/separator.gif" />
+        </div>
+
+
+
+        <div id="Search"></div>
+        <div id="QuickLinks"></div>
+
+
+    </div>
+</header>
+</body>
+</html>
+
