@@ -1,6 +1,7 @@
 package org.csu.management.domain;
 
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.io.Serializable;
@@ -11,7 +12,7 @@ public class LineItem implements Serializable {
 
     //private static final long serialVersionUID = 6804536240033522156L;
 
-    @TableField("orderid")
+    @TableId("orderid")
     private int orderId;
     @TableField("linenum")
     private int lineNumber;

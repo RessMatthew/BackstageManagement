@@ -1,0 +1,247 @@
+<div th:replace="/common/header"></div>
+<!--<ul class="message">-->
+<!--    <li>Thank you, your order has been submitted.</li>-->
+<!--</ul>-->
+
+<div id = "BackLink">
+    <a href="#">Return to Main Menu</a>
+</div>
+
+<div id="Catalog">
+<form action="/order/updateOrder" method="post">
+    <table>
+        <tr>
+            <th align="center" colspan="2" >
+                <span th:text="'Order: '+${session.order.orderId}"></span>
+                <fmt:formatDate th:text="${session.order.orderDate}" pattern="yyyy/MM/dd hh:mm:ss" />
+            </th>
+        </tr>
+        <tr>
+            <th colspan="2">Payment Details</th>
+        </tr>
+        <tr>
+            <td>Card Type:</td>
+            <td>
+                <input type="text" name="cardType" th:value="${session.order.cardType}"/>
+            </td>
+<!--            <td th:text="${session.order.cardType}"></td>-->
+        </tr>
+        <tr>
+            <td>Card Number:</td>
+            <td>
+                <input type="text" name="creditCard" th:value="${session.order.creditCard}"/>
+            </td>
+<!--            <td th:text="${session.order.creditCard}"></td>-->
+        </tr>
+        <tr>
+            <td>Expiry Date (MM/YYYY):</td>
+            <td>
+                <input type="text" name="expiryDate" th:value="${session.order.expiryDate}"/>
+            </td>
+<!--            <td th:text="${session.order.expiryDate}"></td>-->
+        </tr>
+
+        <tr>
+            <th colspan="2">Billing Address</th>
+        </tr>
+        <tr>
+            <td>First name:</td>
+            <td>
+                <input type="text" name="billToFirstName" th:value="${session.order.billToFirstName}"/>
+            </td>
+<!--            <td th:text="${session.order.billToFirstName}"></td>-->
+        </tr>
+        <tr>
+            <td>Last name:</td>
+            <td>
+                <input type="text" name="billToLastName" th:value="${session.order.billToLastName}"/>
+            </td>
+<!--            <td th:text="${session.order.billToLastName}"></td>-->
+        </tr>
+        <tr>
+            <td>Address 1:</td>
+            <td>
+                <input type="text" name="billAddress1" th:value="${session.order.billAddress1}"/>
+            </td>
+<!--            <td th:text="${session.order.billAddress1}"></td>-->
+        </tr>
+        <tr>
+            <td>Address 2:</td>
+            <td>
+                <input type="text" name="billAddress2" th:value="${session.order.billAddress2}"/>
+            </td>
+<!--            <td th:text="${session.order.billAddress2}"></td>-->
+        </tr>
+        <tr>
+            <td>City:</td>
+            <td>
+                <input type="text" name="billCity" th:value="${session.order.billCity}"/>
+            </td>
+<!--            <td th:text="${session.order.billCity}"></td>-->
+        </tr>
+        <tr>
+            <td>State:</td>
+            <td>
+                <input type="text" name="billState" th:value="${session.order.billState}"/>
+            </td>
+<!--            <td th:text="${session.order.billState}"></td>-->
+        </tr>
+        <tr>
+            <td>Zip:</td>
+            <td>
+                <input type="text" name="billZip" th:value="${session.order.billZip}"/>
+            </td>
+<!--            <td th:text="${session.order.billZip}"></td>-->
+        </tr>
+        <tr>
+            <td>Country:</td>
+            <td>
+                <input type="text" name="billCountry" th:value="${session.order.billCountry}"/>
+            </td>
+<!--            <td th:text="${session.order.billCountry}"></td>-->
+        </tr>
+
+
+        <tr>
+            <th colspan="2">Shipping Address</th>
+        </tr>
+        <tr>
+            <td>First name:</td>
+            <td>
+                <input type="text" name="shipToFirstName" th:value="${session.order.shipToFirstName}"/>
+            </td>
+<!--            <td th:text="${session.order.shipToFirstName}"></td>-->
+        </tr>
+        <tr>
+            <td>Last name:</td>
+            <td>
+                <input type="text" name="shipToLastName" th:value="${session.order.shipToLastName}"/>
+            </td>
+<!--            <td th:text="${session.order.shipToLastName}"></td>-->
+        </tr>
+        <tr>
+            <td>Address 1:</td>
+            <td>
+                <input type="text" name="shipAddress1" th:value="${session.order.shipAddress1}"/>
+            </td>
+<!--            <td th:text="${session.order.shipAddress1}"></td>-->
+        </tr>
+        <tr>
+            <td>Address 2:</td>
+            <td>
+                <input type="text" name="shipAddress2" th:value="${session.order.shipAddress2}"/>
+            </td>
+<!--            <td th:text="${session.order.shipAddress2}"></td>-->
+        </tr>
+        <tr>
+            <td>City:</td>
+            <td>
+                <input type="text" name="shipCity" th:value="${session.order.shipCity}"/>
+            </td>
+<!--            <td th:text="${session.order.shipCity}"></td>-->
+        </tr>
+        <tr>
+            <td>State:</td>
+            <td>
+                <input type="text" name="shipState" th:value="${session.order.shipState}"/>
+            </td>
+<!--            <td th:text="${session.order.shipState}"></td>-->
+        </tr>
+        <tr>
+            <td>Zip:</td>
+            <td>
+                <input type="text" name="shipZip" th:value="${session.order.shipZip}"/>
+            </td>
+<!--            <td th:text="${session.order.shipZip}"></td>-->
+        </tr>
+        <tr>
+            <td>Country:</td>
+            <td>
+                <input type="text" name="shipCountry" th:value="${session.order.shipCountry}"/>
+            </td>
+<!--            <td th:text="${session.order.shipCountry}"></td>-->
+        </tr>
+        <tr>
+            <td>Courier:</td>
+            <td>
+                <input type="text" name="courier" th:value="${session.order.courier}"/>
+            </td>
+<!--            <td th:text="${session.order.courier}"></td>-->
+        </tr>
+
+        <tr>
+            <td>Status:</td>
+            <td>
+                <select name="status" th:if="${session.order.status.equals('P')}">
+                    <option selected="selected" value="P">Undelivered</option>-->
+                    <option value="O">Shipped</option>-->
+                    <option value="D">Delete</option>-->
+                </select>
+                <select name="status" th:if="${session.order.status.equals('O')}">
+                    <option  value="P">Undelivered</option>-->
+                    <option value="O" selected="selected">Shipped</option>-->
+                    <option value="D">Delete</option>-->
+                </select>
+                <select name="status" th:if="${session.order.status.equals('D')}">
+                    <option  value="P">Undelivered</option>-->
+                    <option value="O">Shipped</option>-->
+                    <option value="D" selected="selected">Delete</option>-->
+                </select>
+            </td>
+
+<!--            <td  th:text="${session.order.status}"></td>-->
+        </tr>
+        <tr>
+            <td colspan="2">
+                <table>
+                    <tr>
+                        <th>Item ID</th>
+<!--                        <th>Description</th>-->
+                        <th>Quantity</th>
+                        <th>UnitPrice</th>
+                    </tr>
+                    <tr th:each="lineItem:${session.order.lineItems}">
+
+
+                        <td th:text="${lineItem.itemId}"></td>
+<!--                        <td th:if="${lineItem.item} != null">-->
+<!--                            <b th:text="${lineItem.item.attribute1}">-->
+<!--                            </b>-->
+<!--                            <b th:text="${lineItem.item.attribute2}">-->
+<!--                            </b>-->
+<!--                            <b th:text="${lineItem.item.attribute3}">-->
+<!--                            </b>-->
+<!--                            <b th:text="${lineItem.item.attribute4}">-->
+<!--                            </b>-->
+<!--                            <b th:text="${lineItem.item.attribute5}">-->
+<!--                            </b>-->
+<!--                        </td>-->
+
+                        <td th:text="${lineItem.quantity}"></td>
+                        <td>
+                            <fmt:formatNumber th:text="${lineItem.unitPrice}" pattern="$#,##0.00" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th colspan="5">
+                            Total:
+                            <fmt:formatNumber th:text="${session.order.totalPrice}" pattern="$#,##0.00" />
+                        </th>
+                    </tr>
+
+                    <tr>
+                        <td>
+<!--                            <a th:href="@{/order/updateOrder(newOrder=${ShippedOrder.orderId})}" class="ButtonDelete">Delete</a>-->
+                            <input name="updateOrder" type="submit" value="Update Order Information">
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+
+    </table>
+</form>
+</div>
+<div th:replace="/common/footer"></div>

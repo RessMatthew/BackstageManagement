@@ -90,13 +90,13 @@ th {
 }
 
 a, a:visited, a:link {
-    color: #4f5d50;
+    color: #ae8073;
     text-decoration: none;
     font-family: helvetica, tahoma, arial, verdana, sans-serif;
 }
 
 a:hover {
-    color: #adba96;
+    color: #eaac00;
 }
 
 a.Button, a.Button:link, a.Button:visited {
@@ -113,6 +113,33 @@ a.Button:hover {
     color: #000;
     background-color: #54c07a;
 }
+
+a.Button, a.Button:link, a.Button:visited {
+    padding: 1ex;
+    color: #fff;
+    background-color: #005e21;
+    text-decoration: none;
+    font-familyF: helvetica, tahoma, arial, verdana, sans-serif;
+    font-size: 1.5ex;
+    border-radius: 5px;
+}
+
+
+a.ButtonDelete:hover {
+    color: #000;
+    background-color: #ae8074;
+}
+
+a.ButtonDelete, a.ButtonDelete:link, a.ButtonDelete:visited {
+    padding: 1ex;
+    color: #fff;
+    background-color: #d21313;
+    text-decoration: none;
+    font-familyF: helvetica, tahoma, arial, verdana, sans-serif;
+    font-size: 1.5ex;
+    border-radius: 5px;
+}
+
 
 #Logo {
     width: 33%;
@@ -377,5 +404,5 @@ table a{
     color: #005e21;
 }
 table a:hover{
-    color: #54c07a;
+    color: #eaac00;
 }

@@ -38,6 +38,15 @@ public class OrderService {
 
         return orderMapper.selectList(null);
     }
+    public Order findOneOrderByOrderId(int orderId){
+        Order order = new Order();
+        QueryWrapper<Order> wrapper = new QueryWrapper<>();
+        wrapper.eq("orderid",orderId);
+        Order newOrder = orderMapper.selectOne(wrapper);
+        newOrder.setLineItems(findLienItemListByOrderId(orderId));
+        newOrder.setStatus(findStatusByOrderId(orderId));
+        return newOrder;
+    }
 
     /**
      * @Description 订单status为P表示未发货，O表示已发货,P表示删除
@@ -139,9 +148,9 @@ public class OrderService {
     }
 
     public void updateOrderByOrder(Order order){
-        QueryWrapper<Order> wrapper = new QueryWrapper<>();
-        wrapper.eq("orderid",order.getOrderId());
-        Order newOrder = orderMapper.selectOne(wrapper);
+        QueryWrapper<Order> wrapperOrder = new QueryWrapper<>();
+        wrapperOrder.eq("orderid",order.getOrderId());
+        Order newOrder = orderMapper.selectOne(wrapperOrder);
 
         newOrder.setUsername(order.getUsername());
         newOrder.setOrderDate(order.getOrderDate());
@@ -167,10 +176,14 @@ public class OrderService {
         newOrder.setExpiryDate(order.getExpiryDate());
         newOrder.setCardType(order.getCardType());
         newOrder.setLocale(order.getLocale());
-
-
         orderMapper.updateById(newOrder);
 
+        QueryWrapper<OrderStatus> wrapperStatus = new QueryWrapper<>();
+        wrapperStatus.eq("orderid",order.getOrderId());
+        OrderStatus orderStatus = orderStatusMapper.selectOne(wrapperStatus);
+        orderStatus.setStatus(order.getStatus());
+
+        orderStatusMapper.updateById(orderStatus);
 
 
 
