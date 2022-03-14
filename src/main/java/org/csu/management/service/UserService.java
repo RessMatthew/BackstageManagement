@@ -1,7 +1,7 @@
 package org.csu.management.service;
 
 import org.csu.management.domain.User;
-import org.csu.management.persistence.UserMapper;
+import org.csu.management.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

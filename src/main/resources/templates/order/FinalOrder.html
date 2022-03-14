@@ -3,11 +3,11 @@
 <!--    <li>Thank you, your order has been submitted.</li>-->
 <!--</ul>-->
 
-<div id = "BackLink">
-    <a href="#">Return to Main Menu</a>
+<div id="BackLink">
+    <a href="/common/main">Return to Main Menu</a>
 </div>
 
-<div id="Catalog">
+<div >
 <form action="/order/updateOrder" method="post">
     <table>
         <tr>
@@ -192,6 +192,9 @@
 <!--            <td  th:text="${session.order.status}"></td>-->
         </tr>
         <tr>
+            <th colspan="2">LineItem List</th>
+        </tr>
+        <tr>
             <td colspan="2">
                 <table>
                     <tr>
@@ -230,18 +233,14 @@
                         </th>
                     </tr>
 
-                    <tr>
-                        <td>
-<!--                            <a th:href="@{/order/updateOrder(newOrder=${ShippedOrder.orderId})}" class="ButtonDelete">Delete</a>-->
-                            <input name="updateOrder" type="submit" value="Update Order Information">
-                        </td>
-                    </tr>
-
                 </table>
             </td>
         </tr>
-
     </table>
+
+    <p align="center">
+        <input name="editAccount" type="submit" value="Update Order Information">
+    </p>
 </form>
 </div>
 <div th:replace="/common/footer"></div>
