@@ -406,3 +406,7 @@ table a{
 table a:hover{
     color: #eaac00;
 }
+
+.accountstable{
+    display: inline-block;
+}
