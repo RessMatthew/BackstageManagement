@@ -7,7 +7,7 @@ import lombok.Data;
 import java.util.Date;
 
 /**
- * @Description 映射表orderstatus
+ * @Description 避免mybatis-plus而用于映射表orderstatus
  * @Date 2022/3/13 9:34 下午
 
  **/
