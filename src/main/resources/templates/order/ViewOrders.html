@@ -4,7 +4,7 @@
 <!--</ul>-->
 
 <div id="BackLink">
-    <a href="/common/main">Return to Main Menu</a>
+    <a href="/common/main">Return to Check Box</a>
 </div>
 
 
@@ -40,7 +40,7 @@
                 <td th:text="${NotShippedOrder.username}">错误提示</td>
                 <td th:text="${NotShippedOrder.orderDate}">错误提示</td>
                 <td>
-                    <fmt:formatNumber th:text="${NotShippedOrder.totalPrice}" pattern="$#,##0.00" />
+                    <fmt:formatNumber th:text="${NotShippedOrder.totalPrice}+'$'" pattern="$#,##0.00" />
                 </td>
                 <td>
                     <a th:href="@{/order/shipOrder(orderId=${NotShippedOrder.orderId})}" class="Button">Ship</a>
@@ -72,7 +72,7 @@
                 <td th:text="${ShippedOrder.username}">错误提示</td>
                 <td th:text="${ShippedOrder.orderDate}">错误提示</td>
                 <td>
-                    <fmt:formatNumber th:text="${ShippedOrder.totalPrice}" pattern="$#,##0.00" />
+                    <fmt:formatNumber th:text="${ShippedOrder.totalPrice}+'$'" pattern="$#,##0.00" />
                 </td>
                 <td>
                     <a th:href="@{/order/deleteOrder(orderId=${ShippedOrder.orderId})}" class="ButtonDelete">Delete</a>
@@ -100,7 +100,7 @@
                 <td th:text="${DeletedOrder.username}">错误提示</td>
                 <td th:text="${DeletedOrder.orderDate}">错误提示</td>
                 <td>
-                    <fmt:formatNumber th:text="${DeletedOrder.totalPrice}" pattern="$#,##0.00" />
+                    <fmt:formatNumber th:text="${DeletedOrder.totalPrice}+'$'" pattern="$#,##0.00" />
                 </td>
             </tr>
         </table>

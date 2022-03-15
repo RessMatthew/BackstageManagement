@@ -21,7 +21,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/order")
-@SessionAttributes("order")
+@SessionAttributes(value={"order","allNotShippedOrderList"})
 public class OrderController {
 
     @Autowired

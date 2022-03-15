@@ -6,6 +6,25 @@
 </div>
 
 <div id="Main">
+    <table>
+        <tr>
+            <th>Messages Check Box</th>
+            <th>    </th>
+            <th>Deal</th>
+        </tr>
+        <tr>
+            <td>
+                <a href="/order/viewOrders">Order Form</a>
+            </td>
+            <td th:if="${session.allNotShippedOrderList.size()}>0" th:text="${session.allNotShippedOrderList.size()}+' undelivered'">错误提示</td>
+            <td th:if="${session.allNotShippedOrderList.size()}==0">No undelivered orders</td>
+            <td>
+                <a th:if="${session.allNotShippedOrderList.size()}>0" href="/order/viewOrders" class="Button">Handle</a>
+            </td>
+        </tr>
+    </table>
+
+
     <div id="Sidebar">
 <!--        <div id="SidebarContent">-->
 <!--            <a th:href="@{/catalog/viewCategory(categoryId=FISH)}"><img src="/images/fish_icon.gif" /></a>-->
