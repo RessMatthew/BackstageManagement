@@ -1,14 +1,16 @@
 package org.csu.management;
 
-import org.csu.management.domain.LineItem;
-import org.csu.management.domain.Order;
+import org.csu.management.domain.*;
+import org.csu.management.service.CommodityService;
 import org.csu.management.service.OrderService;
 
+import org.csu.management.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -18,12 +20,15 @@ import java.util.List;
 class BackstageManagementApplicationTests {
 
 
-    @Test
-    void contextLoads() {
-    }
-
     @Autowired
     private OrderService orderService;
+
+    @Autowired
+    private CommodityService commodityService;
+
+    @Autowired
+    private UserService userService;
+
 
     @Test
     public void testFindAllOrder(){
@@ -94,6 +99,66 @@ class BackstageManagementApplicationTests {
 
     }
 
+    @Test
+    public void testGetAllItemList(){
+        List<Item> allItemList = commodityService.getAllItemList();
+        Iterator<Item> it = allItemList.iterator();
 
+        while(it.hasNext()) {
+            System.out.println(it.next());
+        }
+    }
+
+    @Test
+    public void testAllCategoryList(){
+        List<Category> allCategoryList = commodityService.getAllCategoryList();
+        Iterator<Category> it = allCategoryList.iterator();
+
+        while(it.hasNext()) {
+            System.out.println(it.next());
+        }
+    }
+
+    @Test
+    public void testGetAllProductList(){
+        List<Product> allProductList = commodityService.getAllProductList();
+        Iterator<Product> it = allProductList.iterator();
+
+        while(it.hasNext()) {
+            System.out.println(it.next());
+        }
+    }
+
+    @Test
+    public void tetssearchUserList(){
+        List<User> userList = userService.searchUserList();
+
+        Iterator<User> it = userList.iterator();
+
+        while(it.hasNext()) {
+            System.out.println(it.next());
+        }
+    }
+
+    @Test
+    public void testgetItemByItemId(){
+        Item item = commodityService.getItemByItemId("EST-18");
+        System.out.println(item);
+
+    }
+
+    @Test
+    public void testUpdateItemByItem(){
+        Item item = commodityService.getItemByItemId("EST-18");
+        item.setStatus("O");
+        commodityService.updateItem(item);
+        System.out.println("更新成功");
+    }
+
+    @Test
+    public void testgetProductByProductId(){
+        Product product = commodityService.getProductByProductId("AV-CB-01");
+        System.out.println(product);
+    }
 
 }

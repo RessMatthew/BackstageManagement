@@ -1,0 +1,45 @@
+<div th:replace="/common/header"></div>
+
+<div id="BackLink">
+    <a href="/common/main">Return to Check Box</a>
+</div>
+
+<div>
+    <form action="#" method="post">
+        <table>
+            <tr>
+                <th align="center" colspan="2" >
+                    <span th:text="'ProductId: '+${product.productId}"></span>
+                    <input type="hidden" name="productId" th:value="${product.productId}"/>
+                </th>
+            </tr>
+            <tr>
+                <td >
+                    <image th:src="${product.description}"></image>
+                </td>
+            </tr>
+            <tr>
+                <td>CategoryId :</td>
+                <td>
+                    <input type="text" name="productId" th:value="${product.categoryId}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Name :</td>
+                <td>
+                    <input type="text" name="listPrice" th:value="${product.name}"/>
+                </td>
+            </tr>
+        </table>
+        <p align="center">
+            <input name="editAccount" type="submit" value="Update Prdouct">
+        </p>
+    </form>
+</div>
+
+
+
+
+
+
+<div th:replace="/common/footer"></div>

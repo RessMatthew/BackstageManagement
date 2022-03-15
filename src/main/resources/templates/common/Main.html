@@ -12,6 +12,18 @@
             <th>    </th>
             <th>Deal</th>
         </tr>
+
+        <tr>
+            <td>
+                <a href="/commodity/viewCommodity">Commodity Remind</a>
+            </td>
+            <td th:if="${session.NoQTYItemList.size()}>0" th:text="${session.NoQTYItemList.size()}+'Less Than 100'">错误提示</td>
+            <td th:if="${session.NoQTYItemList.size()}==0">No Out of stockd Item</td>
+            <td>
+                <a th:if="${session.NoQTYItemList.size()}>0" href="#" class="Button">Handle</a>
+            </td>
+        </tr>
+
         <tr>
             <td>
                 <a href="/order/viewOrders">Order Form</a>
@@ -22,6 +34,8 @@
                 <a th:if="${session.allNotShippedOrderList.size()}>0" href="/order/viewOrders" class="Button">Handle</a>
             </td>
         </tr>
+
+
     </table>
 
 

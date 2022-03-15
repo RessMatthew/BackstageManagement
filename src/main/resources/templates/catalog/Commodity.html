@@ -1,0 +1,101 @@
+<div th:replace="/common/header"></div>
+
+<div id="BackLink">
+    <a href="/common/main">Return to Check Box</a>
+</div>
+
+<div class="viewCommodity">
+
+
+    <ul class="tab-list">
+        <li class="active"><a class="tab-control" href="#tab-1"><h3>Overview Item</h3></a></li>
+        <li><a class="tab-control" href="#tab-2"><h3>Product</h3></a></li>
+        <li><a class="tab-control" href="#tab-3"><h3>Category</h3></a></li>
+    </ul>
+
+    <!--    allItemList-->
+    <div class="tab-panel active" id="tab-1">
+        <p th:if="${allItemList.size()} == 0 ">No deleted orders</p>
+        <table th:if="${allItemList.size()} > 0 ">
+            <tr>
+                <th>  </th>
+                <th>ItemId</th>
+                <th>ProductId</th>
+                <th>Quantity</th>
+            </tr>
+            <tr th:each="Item:${allItemList}">
+                <td>
+                    <image th:src="${Item.product.description}"></image>
+                </td>
+                <td>
+                    <a th:text="${Item.itemId}"
+                       th:href="@{/commodity/viewItemByItemId(itemId=${Item.itemId})}">
+                        错误提示
+                    </a>
+                </td>
+                <td th:text="${Item.productId}">错误提示</td>
+                <td th:text="${Item.quantity}">错误提示</td>
+
+            </tr>
+        </table>
+    </div>
+    <!--    allProductList-->
+    <div class="tab-panel" id="tab-2">
+        <p th:if="${allProductList.size()} == 0 ">No Product</p>
+        <table th:if="${allProductList.size()} > 0 ">
+            <tr>
+                <th> </th>
+                <th>ProductId</th>
+                <th>CategoryId</th>
+                <th>Name</th>
+                <th>  </th>
+            </tr>
+            <tr th:each="Product:${allProductList}">
+                <td >
+                    <image th:src="${Product.description}"></image>
+                </td>
+                <td>
+                    <a th:text="${Product.productId}"
+                       th:href="@{/commodity/viewProductByProductId(productId=${Product.productId})}">
+                        错误提示
+                    </a>
+                </td>
+                <td th:text="${Product.categoryId}">错误提示</td>
+                <td th:text="${Product.name}">错误提示</td>
+
+<!--                <td>-->
+<!--                    <a th:href="@{/order/deleteOrder(orderId=${ShippedOrder.orderId})}" class="ButtonDelete">Delete</a>-->
+<!--                </td>-->
+            </tr>
+        </table>
+    </div>
+    <!--    allCategoryList-->
+    <div class="tab-panel" id="tab-3">
+        <p th:if="${allCategoryList.size()} == 0 ">No Category</p>
+        <table th:if="${allCategoryList.size()} > 0 ">
+            <tr>
+                <th>CategoryId</th>
+                <th></th>
+            </tr>
+            <tr th:each="Category:${allCategoryList}">
+                <td>
+                    <a th:href="@{#(categoryId=${Category.categoryId})}">
+                        <span th:utext="${Category.categoryId}"></span>
+                    </a>
+                </td>
+
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+
+<script type="text/javascript" src="/js/tabs.js"></script>
+
+
+
+
+
+
+<div th:replace="/common/footer"></div>

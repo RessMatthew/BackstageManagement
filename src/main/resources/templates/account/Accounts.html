@@ -15,26 +15,35 @@
         <table class="accounts" th:id="${user.username}+table">
 
             <tr>
+                <td>
+                    username
+                </td>
                 <td th:text="${user.username}">
-                    <a>username</a>
                 </td>
             </tr>
 
             <tr>
-                <td th:text="${user.firstname}">
+                <td>
                     firstname
                 </td>
-            </tr>
-
-            <tr>
-                <td th:text="${user.lastname}">
-                    lastname
+                <td th:text="${user.firstname}">
                 </td>
             </tr>
 
             <tr>
+                <td>
+                    lastname
+                </td>
+                <td th:text="${user.lastname}">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                phone
+                </td>
                 <td th:text="${user.phone}">
-                    phone
+
                 </td>
             </tr>
 

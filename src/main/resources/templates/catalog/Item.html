@@ -1,0 +1,101 @@
+<div th:replace="/common/header"></div>
+
+<div id="BackLink">
+    <a href="/common/main">Return to Check Box</a>
+</div>
+
+<div>
+    <form action="/commodity/updateItem" method="post">
+        <table>
+            <tr>
+                <th align="center" colspan="2" >
+                    <span th:text="'ItemId: '+${item.itemId}"></span>
+                    <input type="hidden" name="itemId" th:value="${item.itemId}"/>
+                </th>
+            </tr>
+            <tr>
+                <td>ProductId :</td>
+                <td>
+                    <input type="text" name="productId" th:value="${item.productId}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>ListPrice :</td>
+                <td>
+                    <input type="text" name="listPrice" th:value="${item.listPrice}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>UnitCost :</td>
+                <td>
+                    <input type="text" name="unitCost" th:value="${item.unitCost}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>SupplierId :</td>
+                <td>
+                    <input type="text" name="supplierId" th:value="${item.supplierId}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Quantity :</td>
+                <td>
+                    <input type="text" name="quantity" th:value="${item.quantity}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Status:</td>
+                <td>
+                    <select name="status" th:if="${item.status.equals('P')}">
+                        <option selected="selected" value="P">Online</option>-->
+                        <option value="O">In short supplyk</option>-->
+                    </select>
+                    <select name="status" th:if="${item.status.equals('O')}">
+                        <option value="P">Online</option>-->
+                        <option selected="selected" value="O">In short supplyk</option>-->
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Attribute1 :</td>
+                <td>
+                    <input type="text" name="attribute1" th:value="${item.attribute1}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Attribute2 :</td>
+                <td>
+                    <input type="text" name="attribute2" th:value="${item.attribute2}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Attribute3 :</td>
+                <td>
+                    <input type="text" name="attribute3" th:value="${item.attribute3}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Attribute4 :</td>
+                <td>
+                    <input type="text" name="attribute4" th:value="${item.attribute4}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Attribute5 :</td>
+                <td>
+                    <input type="text" name="attribute5" th:value="${item.attribute5}"/>
+                </td>
+            </tr>
+        </table>
+            <p align="center">
+                <input name="editAccount" type="submit" value="Update Item">
+            </p>
+    </form>
+</div>
+
+
+
+
+
+
+<div th:replace="/common/footer"></div>
