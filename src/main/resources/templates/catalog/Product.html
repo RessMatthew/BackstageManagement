@@ -5,12 +5,13 @@
 </div>
 
 <div>
-    <form action="#" method="post">
+    <form action="/commodity/updateProduct" method="post">
         <table>
             <tr>
                 <th align="center" colspan="2" >
                     <span th:text="'ProductId: '+${product.productId}"></span>
                     <input type="hidden" name="productId" th:value="${product.productId}"/>
+                    <input type="hidden" name="description" th:value="${product.description}"/>
                 </th>
             </tr>
             <tr>
@@ -19,15 +20,18 @@
                 </td>
             </tr>
             <tr>
-                <td>CategoryId :</td>
+                <td>Category :</td>
                 <td>
-                    <input type="text" name="productId" th:value="${product.categoryId}"/>
+                    <select name="categoryId" >
+                        <option th:value="${product.categoryId}" th:label="${product.categoryId}">错误提示</option>
+                        <option th:each="Category:${allCategoryList}" th:value="${Category.categoryId}" th:label="${Category.categoryId}">错误提示</option>
+                    </select>
                 </td>
             </tr>
             <tr>
                 <td>Name :</td>
                 <td>
-                    <input type="text" name="listPrice" th:value="${product.name}"/>
+                    <input type="text" name="name" th:value="${product.name}"/>
                 </td>
             </tr>
         </table>

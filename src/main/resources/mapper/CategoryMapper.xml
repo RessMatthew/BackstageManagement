@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.csu.management.mapper.CategoryMapper">
-    <select id="getCategory" parameterType="string" resultType="org.csu.management.domain.Category">
+    <select id="getCategoryByCategoryId" parameterType="string" resultType="org.csu.management.domain.Category">
         SELECT
             CATID AS categoryId,
             NAME,
@@ -19,4 +19,22 @@
             DESCN AS description
         FROM CATEGORY
     </select>
+
+    <update id="updateCategory">
+        UPDATE CATEGORY SET
+            CATID= #{categoryId},
+            NAME = #{name},
+            DESCN = #{description}
+        WHERE CATID = #{categoryId}
+    </update>
+
+    <delete id="deleteCategoryByCategoryId">
+        delete from CATEGORY where CATID=#{categoryId}
+    </delete>
+
+    <insert id="insertCategory">
+        insert into CATEGORY (CATID,NAME,DESCN)
+        values (#{categoryId},#{name},#{description}})
+    </insert>
+
 </mapper>

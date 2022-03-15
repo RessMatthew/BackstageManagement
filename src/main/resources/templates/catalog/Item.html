@@ -16,7 +16,10 @@
             <tr>
                 <td>ProductId :</td>
                 <td>
-                    <input type="text" name="productId" th:value="${item.productId}"/>
+                    <select name="productId" >
+                        <option th:value="${item.productId}" th:label="${item.productId}"></option>
+                        <option th:each="Product:${allProductList}" th:value="${Product.productId}" th:label="${Product.productId}">错误提示</option>
+                    </select>
                 </td>
             </tr>
             <tr>
@@ -48,11 +51,11 @@
                 <td>
                     <select name="status" th:if="${item.status.equals('P')}">
                         <option selected="selected" value="P">Online</option>-->
-                        <option value="O">In short supplyk</option>-->
+                        <option value="O">In short supply</option>-->
                     </select>
                     <select name="status" th:if="${item.status.equals('O')}">
                         <option value="P">Online</option>-->
-                        <option selected="selected" value="O">In short supplyk</option>-->
+                        <option selected="selected" value="O">In short supply</option>-->
                     </select>
                 </td>
             </tr>

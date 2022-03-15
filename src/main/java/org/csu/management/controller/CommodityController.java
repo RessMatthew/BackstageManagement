@@ -7,6 +7,8 @@ import org.csu.management.service.CommodityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
@@ -47,7 +49,7 @@ public class CommodityController {
         return "/catalog/Item";
     }
 
-    @RequestMapping("/updateItem")
+    @PostMapping("/updateItem")
     public String updateItem(Item item){
         commodityService.updateItem(item);
         return "redirect:/commodity/viewCommodity";
@@ -56,10 +58,69 @@ public class CommodityController {
     @RequestMapping("/viewProductByProductId")
     public String viewProductByProductId(String productId,Model model){
         Product product = commodityService.getProductByProductId(productId);
-
         model.addAttribute("product",product);
         return "/catalog/Product";
     }
 
+    @PostMapping("/updateProduct")
+    public String updateProduct(Product product){
+        commodityService.updeatePrdouct(product);
+        return "redirect:/commodity/viewCommodity";
+    }
+
+    @GetMapping("/viewCategoryByCategoryId")
+    public String viewCategoryByCategoryId(String categoryId,Model model){
+        Category category = commodityService.getCategoryByCategoryId(categoryId);
+
+        model.addAttribute("category",category);
+        return "/catalog/Category";
+
+    }
+
+    @PostMapping("/updateCategory")
+    public String updateCategory(Category category){
+        commodityService.updateCategory(category);
+
+        return "redirect:/commodity/viewCommodity";
+    }
+
+    @GetMapping("/deleteCategory")
+    public String deleteCategory(String categoryId){
+        commodityService.deleteCategoryByCategoryId(categoryId);
+        return "redirect:/commodity/viewCommodity";
+    }
+
+    @GetMapping("/deleteItem")
+    public String deleteItem(String itemId){
+        commodityService.deleteItemByItemId(itemId);
+        return "redirect:/commodity/viewCommodity";
+    }
+
+    @GetMapping("/deleteProduct")
+    public String deleteProduct(String productId){
+        commodityService.deleteProductByProductId(productId);
+        return "redirect:/commodity/viewCommodity";
+    }
+
+    @GetMapping("/ToViewAddCategory")
+    public String toViewAddCategory(){
+        return "/catalog/AddCategory";
+    }
+
+    @GetMapping("/ToViewAddProduct")
+    public String toViewAddProduct(){
+        return "/catalog/AddProduct";
+    }
+
+    @GetMapping("/ToViewAddItem")
+    public String toViewAddItem(){
+        return "/catalog/AddItem";
+    }
+
+    @PostMapping("/addItem")
+    public String addItem(Item item){
+        commodityService.updateItem(item);
+        return "redirect:/commodity/viewCommodity";
+    }
 
 }

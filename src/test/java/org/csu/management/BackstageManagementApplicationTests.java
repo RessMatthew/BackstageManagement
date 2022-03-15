@@ -161,4 +161,40 @@ class BackstageManagementApplicationTests {
         System.out.println(product);
     }
 
+    @Test
+    public void testupdateProduct(){
+        Product product = commodityService.getProductByProductId("AV-CB-01");
+        product.setName("Test Parrot");
+        commodityService.updeatePrdouct(product);
+        System.out.println(product);
+    }
+
+    @Test
+    public void testgetCategoryByCategoryId(){
+        Category category = commodityService.getCategoryByCategoryId("BIRDS");
+        System.out.println(category);
+    }
+
+    @Test
+    public void testUpdateCategory(){
+        Category category = commodityService.getCategoryByCategoryId("BIRDS");
+        category.setName("test Birds");
+        commodityService.updateCategory(category);
+        System.out.println(category);
+    }
+
+    @Test
+    public void testDeletecategoryId(){
+        Category test = commodityService.getCategoryByCategoryId("Test");
+        commodityService.deleteCategoryByCategoryId(test.getCategoryId());
+    }
+
+    @Test
+    public void testdeleteItem(){
+        //commodityService.deleteItemByItemId("Test");
+        commodityService.deleteItemByProductId("FI-SW-01");
+    }
+
+
+
 }

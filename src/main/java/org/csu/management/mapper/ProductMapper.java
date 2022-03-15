@@ -12,4 +12,8 @@ public interface ProductMapper {
     Product getProductByProductId(String productId);
     List<Product>searchProductList(String keywords);
     List<Product>getAllProductList();
+    void updateProduct(Product product);
+    void deleteProductByProductId(String productId);
+    void deleteProductByCategoryId(String categoryId);
+    void insertProduct(Product product);
 }

@@ -11,5 +11,8 @@ public interface CategoryMapper {
     //select all Category
     List<Category> getCategoryList();
     //select a Category By a Id
-    Category getCategory(String categoryId);
+    Category getCategoryByCategoryId(String categoryId);
+    void updateCategory(Category category);
+    void deleteCategoryByCategoryId(String categoryId);
+    void insertCategory(Category category);
 }

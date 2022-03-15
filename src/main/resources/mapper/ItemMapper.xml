@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="org.csu.management.mapper.ItemMapper">
-    <select id="getItemListByProduct" parameterType="string" resultType="org.csu.management.domain.Item">
+    <select id="getItemListByProductId" parameterType="string" resultType="org.csu.management.domain.Item">
         SELECT
             I.ITEMID,
             LISTPRICE,
@@ -99,4 +99,23 @@
             attr5 = #{attribute5}
         WHERE ITEMID = #{itemId}
     </update>
+
+    <delete id="deleteItemByItemId">
+        delete from ITEM where ITEMID=#{itemId}
+    </delete>
+
+    <delete id="deleteItemByProductId">
+        delete from ITEM where productId=#{productId}
+    </delete>
+
+    <insert id="insertItemToItemTable">
+        insert into ITEM (ITEMID,PRODUCTID,LISTPRICE,UNITCOST,SUPPLIER,STATUS,ATTR1,ATTR2,ATTR3,ATTR4,ATTR5)
+        values (#{itemId},#{productId},#{listPrice},#{unitCost},#{supplierId},#{status},#{attribute1},#{attribute2},#{attribute3},#{attribute4},#{attribute5})
+    </insert>
+
+    <insert id="insertItemToInventoryTable">
+        insert into INVENTORY (ITEMID,qty)
+        values (#{productId},#{quantity})
+    </insert>
+
 </mapper>

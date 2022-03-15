@@ -12,7 +12,12 @@ public interface ItemMapper {
     void updateInventoryQuantity(Map<String, Object> param);
     void updateItemItemDB(Item item);
     int getInventoryQuantity(String itemId);
-    List<Item> getItemListByProduct(String productId);
+    List<Item> getItemListByProductId(String productId);
     Item getItemByItemId(String itemId);
     List<Item> getAllItemList();
+    void deleteItemByItemId(String itemId);
+    void deleteItemByProductId(String productId);
+    void insertItemToItemTable(Item item);
+    void insertItemToInventoryTable(Item item);
+
 }

@@ -1,0 +1,45 @@
+<div th:replace="/common/header"></div>
+
+<div id="BackLink">
+    <a href="/common/main">Return to Check Box</a>
+</div>
+
+<div>
+    <form action="#" method="post">
+
+        <table>
+            <tr>
+                <td>ProductId :</td>
+                <td>
+                    <input type="text" name="productId" />
+                </td>
+            </tr>
+            <tr>
+                <td>CategoryId :</td>
+                <td>
+                    <select name="categoryId" >
+                        <option th:each="Category:${allCategoryList}" th:value="${Category.categoryId}" th:label="${Category.categoryId}">错误提示</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Description :</td>
+                <td>
+                    <input type="text" name="description" />
+                </td>
+            </tr>
+        </table>
+        <p align="center">
+            <input name="editAccount" type="submit" value="Add Product">
+        </p>
+
+
+    </form>
+</div>
+
+
+
+
+
+
+<div th:replace="/common/footer"></div>

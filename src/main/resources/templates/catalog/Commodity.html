@@ -8,13 +8,19 @@
 
 
     <ul class="tab-list">
-        <li class="active"><a class="tab-control" href="#tab-1"><h3>Overview Item</h3></a></li>
-        <li><a class="tab-control" href="#tab-2"><h3>Product</h3></a></li>
-        <li><a class="tab-control" href="#tab-3"><h3>Category</h3></a></li>
+        <li class="active"><a class="tab-control" href="#tab-1"><h3>..........Overview Item</h3></a></li>
+        <li><a class="tab-control" href="#tab-2"><h3>..........Product..........</h3></a></li>
+        <li><a class="tab-control" href="#tab-3"><h3>Category..........</h3></a></li>
     </ul>
 
     <!--    allItemList-->
     <div class="tab-panel active" id="tab-1">
+        <h3 >
+            <span th:text="'There are '+${allItemList.size()}+' Items'"></span>
+            <span>
+                <a href="/commodity/ToViewAddItem" class="Button">ADD</a>
+            </span>
+        </h3>
         <p th:if="${allItemList.size()} == 0 ">No deleted orders</p>
         <table th:if="${allItemList.size()} > 0 ">
             <tr>
@@ -22,6 +28,8 @@
                 <th>ItemId</th>
                 <th>ProductId</th>
                 <th>Quantity</th>
+                <th>Status</th>
+                <th>  </th>
             </tr>
             <tr th:each="Item:${allItemList}">
                 <td>
@@ -35,12 +43,22 @@
                 </td>
                 <td th:text="${Item.productId}">错误提示</td>
                 <td th:text="${Item.quantity}">错误提示</td>
-
+                <td th:if="${Item.status.equals('P')}">Online </td>
+                <td th:if="${Item.status.equals('O')}">In short supply </td>
+                <td>
+                    <a th:href="@{/commodity/deleteItem(itemId=${Item.itemId})}" class="ButtonDelete">Delete</a>
+                </td>
             </tr>
         </table>
     </div>
     <!--    allProductList-->
     <div class="tab-panel" id="tab-2">
+        <h3 >
+            <span th:text="'There are '+${allProductList.size()}+' Products'"></span>
+            <span>
+                <a href="/commodity/ToViewAddProduct" class="Button">ADD</a>
+            </span>
+        </h3>
         <p th:if="${allProductList.size()} == 0 ">No Product</p>
         <table th:if="${allProductList.size()} > 0 ">
             <tr>
@@ -62,28 +80,38 @@
                 </td>
                 <td th:text="${Product.categoryId}">错误提示</td>
                 <td th:text="${Product.name}">错误提示</td>
-
-<!--                <td>-->
-<!--                    <a th:href="@{/order/deleteOrder(orderId=${ShippedOrder.orderId})}" class="ButtonDelete">Delete</a>-->
-<!--                </td>-->
+                <td>
+                    <a th:href="@{/commodity/deleteProduct(productId=${Product.productId})}" class="ButtonDelete">Delete</a>
+                </td>
             </tr>
         </table>
     </div>
     <!--    allCategoryList-->
     <div class="tab-panel" id="tab-3">
+        <h3 >
+            <span th:text="'There are '+${allCategoryList.size()}+' Categories'"></span>
+            <span>
+                <a href="/commodity/ToViewAddCategory" class="Button">ADD</a>
+            </span>
+        </h3>
         <p th:if="${allCategoryList.size()} == 0 ">No Category</p>
         <table th:if="${allCategoryList.size()} > 0 ">
             <tr>
                 <th>CategoryId</th>
-                <th></th>
+                <th>Name</th>
             </tr>
             <tr th:each="Category:${allCategoryList}">
                 <td>
-                    <a th:href="@{#(categoryId=${Category.categoryId})}">
+                    <a th:href="@{/commodity/viewCategoryByCategoryId(categoryId=${Category.categoryId})}">
                         <span th:utext="${Category.categoryId}"></span>
                     </a>
                 </td>
-
+                <td>
+                    <span th:text="${Category.name}"></span>
+                </td>
+                <td>
+                    <a th:href="@{/commodity/deleteCategory(categoryId=${Category.categoryId})}" class="ButtonDelete">Delete</a>
+                </td>
             </tr>
         </table>
     </div>

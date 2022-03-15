@@ -1,0 +1,102 @@
+<div th:replace="/common/header"></div>
+
+<div id="BackLink">
+    <a href="/common/main">Return to Check Box</a>
+</div>
+
+<div>
+    <form action="/commodity/addItem" method="post">
+        <table>
+            <tr>
+                <td>ItemId :</td>
+                <td>
+                    <input type="text" name="itemId" />
+                </td>
+            </tr>
+            <tr>
+                <td>ProductId :</td>
+                <td>
+                    <select name="productId" >
+                        <option th:each="Product:${allProductList}" th:value="${Product.productId}" th:label="${Product.productId}">错误提示</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>ListPrice :</td>
+                <td>
+                    <input type="text" name="listPrice" />
+                </td>
+            </tr>
+            <tr>
+                <td>UnitCost :</td>
+                <td>
+                    <input type="text" name="unitCost" />
+                </td>
+            </tr>
+            <tr>
+                <td>SupplierId :</td>
+                <td>
+                    <input type="text" name="supplierId" />
+                </td>
+            </tr>
+            <tr>
+                <td>Status :</td>
+                <td>
+                    <select name="status" >
+                        <option value="P">Online</option>
+                        <option value="O">In short supply</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Attribute1 :</td>
+                <td>
+                    <input type="text" name="attribute1" />
+                </td>
+            </tr>
+            <tr>
+                <td>Attribute2 :</td>
+                <td>
+                    <input type="text" name="attribute2" />
+                </td>
+            </tr>
+            <tr>
+                <td>Attribute3 :</td>
+                <td>
+                    <input type="text" name="attribute3" />
+                </td>
+            </tr>
+            <tr>
+                <td>Attribute4 :</td>
+                <td>
+                    <input type="text" name="attribute4" />
+                </td>
+            </tr>
+            <tr>
+                <td>Attribute5 :</td>
+                <td>
+                    <input type="text" name="attribute5" />
+                </td>
+            </tr>
+            <tr>
+                <td>Quantity :</td>
+                <td>
+                    <input type="text" name="quantity" />
+                </td>
+            </tr>
+
+
+        </table>
+        <p align="center">
+            <input name="editAccount" type="submit" value="Add Product">
+        </p>
+
+    </form>
+</div>
+
+
+
+
+
+
+<div th:replace="/common/footer"></div>
