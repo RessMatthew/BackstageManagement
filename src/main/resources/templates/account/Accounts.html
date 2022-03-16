@@ -6,46 +6,76 @@
 
 
 
-<div id="accounts">
+
 
     <h1 align="center">Accounts</h1>
 
-    <div class="accountstable" th:each="user:${userList}">
+    <div >
 
-        <table class="accounts" th:id="${user.username}+table">
+        <table>
 
-            <tr>
-                <td>
-                    username
-                </td>
-                <td th:text="${user.username}">
-                </td>
-            </tr>
+
 
             <tr>
-                <td>
-                    firstname
-                </td>
-                <td th:text="${user.firstname}">
-                </td>
+                <th>Username</th>
+                <th>firstname</th>
+                <th>lastname</th>
+                <th>phone</th>
+                <th></th>
+
             </tr>
 
-            <tr>
+
+
+
+            <tr class="accounts" th:each="user:${userList}" th:id="${user.username}+table">
                 <td>
-                    lastname
+                    <a th:text="${user.username}" th:href="@{/account/manageAccount(username=${user.username})}">
+                        username
+                    </a>
                 </td>
-                <td th:text="${user.lastname}">
+                <td th:text="${user.firstname}">firstname</td>
+                <td th:text="${user.lastname}">lastname</td>
+                <td th:text="${user.phone}">phone</td>
+                <td>
+                    <a class="Button" th:href="@{/account/manageAccount(username=${user.username})}">Edit</a>
                 </td>
+
             </tr>
 
-            <tr>
-                <td>
-                phone
-                </td>
-                <td th:text="${user.phone}">
 
-                </td>
-            </tr>
+<!--            <tr>-->
+<!--                <td>-->
+<!--                    username-->
+<!--                </td>-->
+<!--                <td th:text="${user.username}">-->
+<!--                </td>-->
+<!--            </tr>-->
+
+<!--            <tr>-->
+<!--                <td>-->
+<!--                    firstname-->
+<!--                </td>-->
+<!--                <td th:text="${user.firstname}">-->
+<!--                </td>-->
+<!--            </tr>-->
+
+<!--            <tr>-->
+<!--                <td>-->
+<!--                    lastname-->
+<!--                </td>-->
+<!--                <td th:text="${user.lastname}">-->
+<!--                </td>-->
+<!--            </tr>-->
+
+<!--            <tr>-->
+<!--                <td>-->
+<!--                phone-->
+<!--                </td>-->
+<!--                <td th:text="${user.phone}">-->
+
+<!--                </td>-->
+<!--            </tr>-->
 
 
         </table>
@@ -58,7 +88,7 @@
 
 
 
-</div>
+
 
 
 
