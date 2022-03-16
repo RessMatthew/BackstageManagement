@@ -2,9 +2,11 @@ package org.csu.management.service;
 
 import org.csu.management.domain.Category;
 import org.csu.management.domain.Item;
+import org.csu.management.domain.Photo;
 import org.csu.management.domain.Product;
 import org.csu.management.mapper.CategoryMapper;
 import org.csu.management.mapper.ItemMapper;
+import org.csu.management.mapper.PhotoMapper;
 import org.csu.management.mapper.ProductMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,6 +31,9 @@ public class CommodityService {
 
     @Autowired
     private ProductMapper productMapper;
+
+    @Autowired
+    private PhotoMapper photoMapper;
 
     /**
      * @Description //TODO 查询所有ITEM
@@ -161,15 +166,19 @@ public class CommodityService {
     }
 
     public void addItem(Item item){
-        itemMapper.updateItemItemDB(item);
-        Map<String, Object> param = new HashMap<String, Object>(2);
-        param.put("itemId", item.getItemId());        //itemId当String放入increment当Integer放入Map
-        param.put("quantity", item.getQuantity());  //increment当Integer放入Map
-        itemMapper.updateInventoryQuantity(param);
+        itemMapper.insertItemToItemTable(item);
+        itemMapper.insertItemToInventoryTable(item);
     }
 
+    public void addProduct(Product product){
+        productMapper.insertProduct(product);
+    }
 
+    public void addCategory(Category category){
+        categoryMapper.insertCategory(category);
+    }
 
-
-
+    public List<Photo> getAllPhotoList(){
+        return photoMapper.getAllPhotoDescn();
+    }
 }

@@ -34,7 +34,7 @@
 
     <insert id="insertCategory">
         insert into CATEGORY (CATID,NAME,DESCN)
-        values (#{categoryId},#{name},#{description}})
+        values (#{categoryId},#{name},#{description})
     </insert>
 
 </mapper>

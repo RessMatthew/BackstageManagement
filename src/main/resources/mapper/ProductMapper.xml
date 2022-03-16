@@ -61,7 +61,7 @@
 
     <insert id="insertProduct">
         insert into PRODUCT (PRODUCTID,CATEGORY,NAME,DESCN)
-        values (#{productId},#{categoryId},#{name},#{description}})
+        values (#{productId},#{categoryId},#{name},#{description})
     </insert>
 
 </mapper>

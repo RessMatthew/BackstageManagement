@@ -5,7 +5,7 @@
 </div>
 
 <div>
-    <form action="#" method="post">
+    <form action="/commodity/addProduct" method="post">
 
         <table>
             <tr>
@@ -25,7 +25,18 @@
             <tr>
                 <td>Description :</td>
                 <td>
+                    <select name="description" >
+                        <option th:each="Photo:${allPhotoList}" th:value="${Photo.descn}" th:label="${Photo.descn}">错误提示</option>
+                    </select>
+                </td>
+                <td>
                     <input type="text" name="description" />
+                </td>
+            </tr>
+            <tr>
+                <td>Name :</td>
+                <td>
+                    <input type="text" name="name" />
                 </td>
             </tr>
         </table>

@@ -11,9 +11,16 @@
                 <th align="center" colspan="2" >
                     <span th:text="'ProductId: '+${product.productId}"></span>
                     <input type="hidden" name="productId" th:value="${product.productId}"/>
-                    <input type="hidden" name="description" th:value="${product.description}"/>
+<!--                    <input type="hidden" name="description" th:value="${product.description}"/>-->
                 </th>
             </tr>
+            <td>Description :</td>
+            <td>
+                <select name="description" >
+                    <option th:value="${product.description}" th:label="${product.description}">错误提示</option>
+                    <option th:each="Photo:${allPhotoList}" th:value="${Photo.descn}" th:label="${Photo.descn}">错误提示</option>
+                </select>
+            </td>
             <tr>
                 <td >
                     <image th:src="${product.description}"></image>

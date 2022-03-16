@@ -195,6 +195,16 @@ class BackstageManagementApplicationTests {
         commodityService.deleteItemByProductId("FI-SW-01");
     }
 
+    @Test
+    public void testgetAllPhotoDescn(){
+        List<Photo> allPhotoList = commodityService.getAllPhotoList();
+
+        Iterator<Photo> it = allPhotoList.iterator();
+
+        while(it.hasNext()) {
+            System.out.println(it.next());
+        }
+    }
 
 
 }

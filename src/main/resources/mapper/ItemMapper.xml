@@ -115,7 +115,7 @@
 
     <insert id="insertItemToInventoryTable">
         insert into INVENTORY (ITEMID,qty)
-        values (#{productId},#{quantity})
+        values (#{itemId},#{quantity})
     </insert>
 
 </mapper>

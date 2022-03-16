@@ -2,6 +2,7 @@ package org.csu.management.controller;
 
 import org.csu.management.domain.Category;
 import org.csu.management.domain.Item;
+import org.csu.management.domain.Photo;
 import org.csu.management.domain.Product;
 import org.csu.management.service.CommodityService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/commodity")
-@SessionAttributes(value={"allCategoryList","allProductList","allItemList"})
+@SessionAttributes(value={"allCategoryList","allProductList","allItemList","allPhotoList"})
 public class CommodityController {
 
     @Autowired
@@ -34,10 +35,12 @@ public class CommodityController {
         List<Category> allCategoryList = commodityService.getAllCategoryList();
         List<Product> allProductList = commodityService.getAllProductList();
         List<Item> allItemList = commodityService.getAllItemList();
+        List<Photo> allPhotoList = commodityService.getAllPhotoList();
 
         model.addAttribute("allCategoryList",allCategoryList);
         model.addAttribute("allProductList",allProductList);
         model.addAttribute("allItemList",allItemList);
+        model.addAttribute("allPhotoList",allPhotoList);
         return "/catalog/Commodity";
     }
 
@@ -119,8 +122,21 @@ public class CommodityController {
 
     @PostMapping("/addItem")
     public String addItem(Item item){
-        commodityService.updateItem(item);
+        commodityService.addItem(item);
         return "redirect:/commodity/viewCommodity";
     }
+
+    @PostMapping("/addProduct")
+    public String addProduct(Product product){
+        commodityService.addProduct(product);
+        return "redirect:/commodity/viewCommodity";
+    }
+
+    @PostMapping("/addCategory")
+    public String addCategory(Category category){
+        commodityService.addCategory(category);
+        return "redirect:/commodity/viewCommodity";
+    }
+
 
 }
